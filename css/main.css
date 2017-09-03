@@ -1,0 +1,197 @@
+* {
+	box-sizing: border-box;
+}
+
+.caozuo>div {
+	margin-top: 10px;
+	display: inline-block;
+}
+
+.caozuo>div>input {
+	display: block;
+	width: 80px;
+	height: 30px;
+}
+
+.cycz input {
+	margin-top: 10px;
+	display: block;
+	width: 80px;
+	height: 30px;
+}
+
+.baozou {
+	position: fixed;
+	z-index: 99;
+	bottom: 0;
+	left: -34px;
+	background-image: url(../image/img_item.png);
+	/*background-position-x: 135838px;*/
+	/*background-position-y: 20755px;*/
+	width: 125px;
+	height: 76px;
+}
+
+.buttom {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 50px;
+	background-image: url(../image/ui_new_bg_png.png);
+	background-size: 100% 100%;
+}
+
+.hp {
+	width: 70vw;
+	height: 30px;
+	/*background-color: red;*/
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 2px;
+	border: 1px solid rgba(0, 70, 255, 0.6);
+	;
+}
+
+.hp-in {
+	width: calc( 100%);
+	height: 23px;
+	background: rgb(255, 42, 42);
+	transition: 0.2s;
+}
+
+.defen {
+	position: fixed;
+	margin-top: -100px;
+	top: -200px;
+}
+
+.defen-top {
+	width: 100vw;
+	height: 200px;
+	background-image: url(../image/ui_purple_basemap.png);
+	background-size: 100% 100%;
+	font-size: 30px;
+}
+
+.defen-show {
+	transition: 2s;
+	top: 40%;
+}
+
+#defen {
+	width: 100%;
+	text-align: center;
+	padding-top: 30px;
+	color: rgb(255, 240, 104);
+}
+
+.buttom-ck {
+	background-image: url(../image/ui_new_bg_png.png);
+	background-size: 100% 100%;
+	width: 200px;
+	height: 55px;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+.buttom-ck-in {
+	background-image: url(../image/ui_new_word_png.png);
+	background-position-x: -89px;
+	width: 170px;
+	height: 45px;
+	margin: 0 auto;
+}
+
+.box {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	background-image: url(../image/ui_loading_Background.jpg);
+	background-size: 100% 100%;
+}
+
+.box-title {
+	font-size: 5vh;
+	text-align: center;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.box-list {
+	overflow: hidden;
+	width: 100%;
+	margin-top: 30%;
+}
+
+.box-fenji-box {
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+
+.box-fenji {
+	width: 180px;
+	height: 280px;
+	width: 40vw;
+	height: 35vh;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	opacity: 0.5;
+}
+
+.buttom-show {
+	width: 70vw;
+	height: 10vh;
+	background-image: url(../image/img_ui.png);
+	background-size: 100% 100%;
+	margin: 0 auto;
+	line-height: 10vh;
+	text-align: center;
+	font-size: 6vh;
+	padding-top: 1vh;
+}
+
+.buttom-qd {
+	background-image: url(../image/ui_new_word_png.png);
+	height: 45px;
+	width: 88px;
+	/*background-position: 10px 100px ;*/
+	margin: 0 auto;
+}
+.HP{
+	position: fixed;
+	top:5px;
+	left:5px;
+	z-index: 99999;
+	height: 30px;
+	overflow: hidden;
+	width: 100%;
+}
+.HP-in{
+	float: left;
+	background-image: url(../image/img_hp.png);
+	width: 55px;
+	height: 30px;
+}
+.HP-box{
+	float: left;
+	width: 60vw;
+	height: 100%;
+	transform: skewX(-30deg);
+	border: 1px solid white;
+}
+.HP-to{
+	width: 100%;
+	height: 100%;
+	background-color: rgb(187,62,0);
+	/*transform: skewX(-30deg);*/
+	transition: 0.2s;
+}
+#title{
+	width: 100vw;
+	text-align: center;
+}

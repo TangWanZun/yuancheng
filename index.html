@@ -1,3 +1,97 @@
-<body>
-hello word
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/main.css" />
+		<meta name="viewport" content="user-scalable=no, width=device-width, minimum-scale=1, maximum-scale=1" />
+		<img src="image/zd1.png" alt="" id="zd1" style="display:none">
+		<img src="image/img_bullet.png" alt="" id="bz1" style="display:none">
+		<img src="image/huoyan.png" alt="" id="hy" style="display:none">
+		<img src="image/jiguang.png" alt="" id="jg-2" style="display:none">
+		<img src="image/jiguang_1.png" id="jg-1" style="display:none"/>
+		<img src="image/jiguang_3.png" id="jg-3" style="display:none"/>
+		<img src="image/img_phenix.png" id="fj-1" style="display:none"/>
+	</head>
+	<body>
+		<div class="box" style="">
+			<div class="box-list">
+				<div class="box-title">请选择您的战机</div>
+				<div class="box-fenji-box">
+					<div class="box-fenji" style="background-image: url(image/zhanji_1.png);opacity:1;" onclick="xuezeZJ(1);"></div>					
+				</div>
+				<div class="box-fenji-box">
+					<div class="box-fenji" style="background-image: url(image/zhanji_2.png);"  onclick="xuezeZJ(2);"></div>
+				</div>
+			</div>
+			<div style="width: 100%;padding-top:5vh;"><div onclick="show()" class="buttom-show"><div class="buttom-qd"></div></div></div>
+		</div>
+		<div id="game" style="display: none; */">
+			<div class="HP"><div class="HP-in"></div><div class="HP-box"><div class="HP-to" id="hp-in"></div></div></div>
+			<div style="position: fixed;bottom:0;left:0;z-index: 99;color:red;font-size: 25px;"><div id="title" >0</div></div>
+			<div style="position: fixed;top:5px;left:40%;z-index: 9999999;color:black;font-size: 25px;"><div id="HP" >50</div></div>
+			<!--
+			<div class="cycz" style=" position: fixed;top:0;right:0;z-index: 99;">
+				<div ><input type="button" value="暂停" onclick="ticker.pause();"/></div>
+				<div ><input type="button" value="恢复" onclick="ticker.resume();"/></div>
+				<div ><input type="button" value="重启游戏" onclick="reset()"/></div>
+				<input type="button" value="操作台开关" onclick="cztShow()"/>
+			</div>
+			-->
+			<div class="caozuo" style="width: 80%;position: fixed;top:160px;right:0;z-index: 99;display: none;">
+				<div ><input type="button" value="添加小黄机" onclick="djShow_xhj(1000)"/></div>
+				<div ><input type="button" value="添加中绿机" onclick="djShow_zlj(3500)"/></div>
+				<div ><input type="button" value="添加大蓝机" onclick="djShow_dlj(8000);"/></div>
+				<div ><input type="button" value="添加导弹" onclick="djShow_dd(1500);"/></div>
+				<div ><input type="button" value="添加一组敌人" onclick="djShow_xhj(1000);djShow_zlj(3500);djShow_dlj(8000);djShow_dd(1500);"/></div>
+				<div ><input type="button" value="创建BOSS1" onclick=" clearTimeOutDJ();createBOSS(stage,[526,590,497,355],1000,50,BOSS_daodan)"/></div>
+				<div ><input type="button" value="创建BOSS2" onclick=" clearTimeOutDJ();createBOSS(stage,[572,0,452,333],1000,50,BOSS_sanjiao)"/></div>
+				<div ><input type="button" value="主炮" onclick="zdShow_zhup()"/></div>
+				<div ><input type="button" value="主炮升级" onclick="zdUP_zhup()"/></div>
+				<div ><input type="button" value="激光" onclick="zdShow_jiguang();"/></div>
+				<div ><input type="button" value="激光升级" onclick="zdUP_jiguang()"/></div>
+				<div ><input type="button" value="副炮" onclick="zdShow_fup(3,250)"/></div>
+				<div ><input type="button" value="清除敌机" onclick=" clearTimeOutDJ();"/></div>
+				<div ><input type="button" value="清屏" onclick="containerDJ.removeAllChildren()"/></div>
+			</div>
+			<div id="game-container" style="position: fixed;top: 0px;left:0px;" ></div>
+			<div class="baozou" onclick="baozouShow()"></div>
+			<div class="defen"><div class="defen-top"><div   id="defen">获得分数<br/></div></div><div class="buttom-ck" onclick="reset();"><div class="buttom-ck-in"></div></div></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/hilo-standalone.min.js" ></script>
+	<script type="text/javascript" src="js/config.js" ></script>
+	<script type="text/javascript" src="js/main.js" ></script>
+	<script type="text/javascript" src="js/map.js" ></script>
+	<script type="text/javascript" src="js/dj.js" ></script>
+	<script type="text/javascript" src="js/zd.js" ></script>
+	<script>
+		init();
+		function show(){//开始游戏
+			document.querySelector("#game").style.display="block";
+			init();
+			switch(ZJtype){
+				case 1:zdShow_zhup();break;
+				case 2:zdShow_jiguang();break;
+			}
+			djShow_xhj(1000);
+			document.querySelector(".box").style.display="none";
+		}
+		function xuezeZJ(n){
+			var arr = document.getElementsByClassName("box-fenji");
+			for(var i  = 0; i<arr.length;i++){
+				arr[i].style.opacity = "0.5";
+			}
+			arr[n-1].style.opacity = "1";
+			ZJtype = n;
+		}
+        function cztShow(){
+        	var div = document.querySelector(".caozuo");
+        	if(div.style.display=="none"){
+        		div.style.display = "block";
+        	}else{
+        		div.style.display = "none";
+        	}
+        }
+	</script>
+</html>
