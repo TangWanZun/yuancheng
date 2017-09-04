@@ -1,0 +1,15 @@
+#load-box{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vh;
+	height: 100vh;
+	background-color: black;
+	color: white;
+	z-index: 999999999;
+}
+.load-title{
+	width: 200px;
+	margin: 0 auto;
+	margin-top:48%;
+}

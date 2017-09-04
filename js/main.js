@@ -122,13 +122,15 @@ function feijiload(){
 	
 	]);
 	
-	
+	var loadJindu = document.getElementById("load-jindu");
 	//负载的事件处理程序
 	queue.on('load', function(e) {
+		loadJindu.innerHTML = "正在加载文件:"+queue.getLoaded()+"/"+ queue.getTotal()+"---"+e.detail.src;
 		console.log('load:', e.detail.src, queue.getLoaded(), queue.getTotal());
 	}).on('complete', function(e) {
 		console.log('complete');
-	
+		loadJindu.innerHTML = "加载完成";
+		document.getElementById("load-box").style.display = "none";
 		//如果图像加载，则创建位图。
 		var bmp = new Hilo.Bitmap({
 			image: queue.getContent('fish'),
