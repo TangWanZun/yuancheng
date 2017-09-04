@@ -119,7 +119,6 @@ function feijiload(){
 			noCache: true,
 			src: 'image/zhanji_2.png'
 		}
-	
 	]);
 	
 	var loadJindu = document.getElementById("load-jindu");
