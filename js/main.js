@@ -21,9 +21,8 @@ function baozouShow(){//核武
 function reset() { //重启游戏
 	location.reload(false);
 }
-
-function init() {
-	//绘制舞台
+function feijiload(){
+		//绘制舞台
 	stage = new Hilo.Stage({
 		renderType: 'canvas',
 		container: containerEle,
@@ -38,6 +37,113 @@ function init() {
 	ticker.addTick(stage);
 	ticker.addTick(Hilo.Tween); //添加缓动
 	ticker.start();
+	//创建一个加载队列
+	var queue = new Hilo.LoadQueue();
+	
+	//设置负载队列的最大连接，默认值是2。
+	queue.maxConnections = 1;
+	
+	//添加源
+	queue.add([{
+			id: 'img_plane_enemy',
+			noCache: true,
+			src: 'image/img_plane_enemy.png'
+		},
+		{
+			id: 'feji',
+			noCache: true,
+			src: 'image/feji.png'
+		},
+		{
+			id: 'img_bg_level_4',
+			noCache: true,
+			src: 'image/img_bg_level_4.jpg'
+		},
+		{
+			id: 'img_bg_level_5',
+			noCache: true,
+			src: 'image/img_bg_level_5.jpg'
+		},
+		{
+			id: 'img_bullet',
+			noCache: true,
+			src: 'image/img_bullet.png'
+		},
+		{
+			id: 'img_item',
+			noCache: true,
+			src: 'img_item.png'
+		},
+		{
+			id: 'img_plane_boss',
+			noCache: true,
+			src: 'image/img_plane_boss.png'
+		},
+		{
+			id: 'img_plane_enemy',
+			noCache: true,
+			src: 'image/img_plane_enemy.png'
+		},
+		{
+			id: 'ui_loading_Background',
+			noCache: true,
+			src: 'image/ui_loading_Background.jpg'
+		},
+		{
+			id: 'zd',
+			noCache: true,
+			src: 'image/zd.png'
+		},
+		{
+			id: 'zubao',
+			noCache: true,
+			src: 'image/zubao.png'
+		},
+		{
+			id: 'ui_purple_basemap',
+			noCache: true,
+			src: 'image/ui_purple_basemap.png'
+		},
+		{
+			id: 'zd1',
+			noCache: true,
+			src: 'image/zd1.png'
+		},
+		{
+			id: 'zhanji_1',
+			noCache: true,
+			src: 'image/zhanji_1.png'
+		},
+		{
+			id: 'zhanji_2',
+			noCache: true,
+			src: 'image/zhanji_2.png'
+		}
+	
+	]);
+	
+	
+	//负载的事件处理程序
+	queue.on('load', function(e) {
+		console.log('load:', e.detail.src, queue.getLoaded(), queue.getTotal());
+	}).on('complete', function(e) {
+		console.log('complete');
+	
+		//如果图像加载，则创建位图。
+		var bmp = new Hilo.Bitmap({
+			image: queue.getContent('fish'),
+			rect: [0, 0, 174, 126],
+			x: 75,
+			y: 50
+		}).addTo(stage);
+	}).on('error', function(e) {
+		console.log('error:', e.detail.src);
+	});
+	
+	//启动负载队列
+	queue.start();
+}
+function init() {
 	//地图舞台
 	var containerMAP = new Hilo.Container({
 		x: 0,
