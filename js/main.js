@@ -19,25 +19,7 @@ function baozouShow(){//核武
 	}
 }
 function reset() { //重启游戏
-	//	djList = new Array();//敌机序列removeFromParent()
-	//	clearInterval(timeOutDJ);
-	//	clearInterval(timeOutZD);
-	//	stage.removeFromParent();
-	//	container.removeAllChildren();
-	//	containerDJ.removeAllChildren();
-	//	container.removeFromParent();
-	//	containerDJ.removeFromParent();
-	//	containerEle.innerHTML = "";
-	//	title.innerHTML = "0";
-	//	Hilo.Tween.removeAll();
-	////	Hilo.Tween = null;
-	//	stage = null;//绘制舞台
-	//	ticker = null;//绘制时间轴
-	//	containerDJ = null;//敌方舞台
-	//	container = null;//飞机舞台
-	//	DF = 0;//当前得分
 	location.reload(false);
-	//	init();/
 }
 
 function init() {
