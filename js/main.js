@@ -168,6 +168,7 @@ function feijiload() {
 }
 
 function init() {
+	document.getElementById("load-box").style.display = "block";
 	//地图舞台
 	var containerMAP = new Hilo.Container({
 		x: 0,
@@ -245,7 +246,7 @@ function init() {
 			]);
 			//负载的事件处理程序
 			var loadJindu = document.getElementById("load-jindu");
-			document.getElementById("load-box").style.display = "block";
+			
 			queueFJ.on('load', function(e) {
 				loadJindu.innerHTML = "正在加载文件:" + queueFJ.getLoaded() + "/" + queueFJ.getTotal() + "---" + e.detail.src;
 				console.log('load:', e.detail.src, queueFJ.getLoaded(), queueFJ.getTotal());
@@ -311,7 +312,6 @@ function init() {
 			]);
 			//负载的事件处理程序
 			var loadJindu = document.getElementById("load-jindu");
-			document.getElementById("load-box").style.display = "block";
 			queueFJ.on('load', function(e) {
 				loadJindu.innerHTML = "正在加载文件:" + queueFJ.getLoaded() + "/" + queueFJ.getTotal() + "---" + e.detail.src;
 				console.log('load:', e.detail.src, queueFJ.getLoaded(), queueFJ.getTotal());
