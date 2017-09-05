@@ -86,20 +86,11 @@
 
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"/>
 		<!-- 添加 RSS 订阅 -->
-		<link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
-		<!-- 添加 favicon icon -->
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/load.css" />
 		<meta name="viewport" content="user-scalable=no, width=device-width, minimum-scale=1, maximum-scale=1" />
-		<img src="image/zd1.png" alt="" id="zd1" style="display:none">
-		<img src="image/img_bullet.png" alt="" id="bz1" style="display:none">
-		<img src="image/huoyan.png" alt="" id="hy" style="display:none">
-		<img src="image/jiguang.png" alt="" id="jg-2" style="display:none">
-		<img src="image/jiguang_1.png" id="jg-1" style="display:none"/>
-		<img src="image/jiguang_3.png" id="jg-3" style="display:none"/>
-		<img src="image/img_phenix.png" id="fj-1" style="display:none"/>
 	</head>
 	<body>
 		<div id="load-box">
@@ -173,10 +164,6 @@
 		function show(){//开始游戏
 			document.querySelector("#game").style.display="block";
 			init();
-			switch(ZJtype){
-				case 1:zdShow_zhup();break;
-				case 2:zdShow_jiguang();break;
-			}
 			djShow_xhj(1000);
 			document.querySelector(".box").style.display="none";
 		}

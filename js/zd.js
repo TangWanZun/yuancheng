@@ -79,13 +79,13 @@ function zdShow_jiguang(GJ){//激光
 	}
 	switch(ZPDJ){
 		case 1:
-			JG_T=createZD_jiguang("0-0","jg-1",14,186,container,GJ,null,18,30);break;
+			JG_T=createZD_jiguang("0-0","jiguang_1",14,186,container,GJ,null,18,30);break;
 		case 2:
 			JG_GJ = 4;
-			JG_T=createZD_jiguang("0-3","jg-2",40,847,container,JG_GJ,40,31,30);break;
+			JG_T=createZD_jiguang("0-3","jiguang",40,847,container,JG_GJ,40,31,30);break;
 		case 3:
 			JG_GJ = 6;
-			JG_T=createZD_jiguang("0-6","jg-3",46,309,container,JG_GJ,null,33,50);break;
+			JG_T=createZD_jiguang("0-6","jiguang_3",46,309,container,JG_GJ,null,33,50);break;
 		case 4:
 			JG_GJ =8;
 			JG_T=createZD_jiguang("0-6","zd1",137,309,container,JG_GJ,null,82.5,65);break;
@@ -101,7 +101,7 @@ function createZD_zhup(re,X,Y,wid,hid,stage,GJ,Z){//主炮
 	GJ= GJ||10;
 	var bmp = new Hilo.Bitmap({
 //      image: './image/zd.png',
-        image: './image/zubao.png',
+        image: queueFJ.getContent("zubao"),
         rect:re,
 	    x:X+wid/2-Z,
 	    y: Y-65, 
@@ -116,7 +116,7 @@ function createZD_zhup(re,X,Y,wid,hid,stage,GJ,Z){//主炮
 				bmp.removeFromParent();
 				 //	添加动态子弹爆炸
 				var zdbj = new Hilo.Sprite({
-					frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-7", document.getElementById("bz1"), 56, 56, true),
+					frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-7", PQUEUE.getContent('img_bullet'), 56, 56, true),
 					x: bmp.x,
 					y: bmp.y,
 					scaleX:0.5,
@@ -158,7 +158,7 @@ function createZD_fup(X,Y,wid,hid,stage,GJ,bmpLX,bmpRX){//副炮
 	//创建子弹
 	GJ= GJ||5;
 	var bmpL = new Hilo.Bitmap({
-        image: './image/zd.png',
+        image: PQUEUE.getContent('zd'),
         rect: [600,565,44, 140],
 	    x:X+wid/2-38,
 	    y: Y+20, 	
@@ -166,7 +166,7 @@ function createZD_fup(X,Y,wid,hid,stage,GJ,bmpLX,bmpRX){//副炮
     	scaleY:0.5,
 	}).addTo(stage);
 	var bmpR = new Hilo.Bitmap({
-        image: './image/zd.png',
+        image: PQUEUE.getContent('zd'),
         rect: [640,765,44, 140],
 	    x:X+wid/2+18,
 	    y: Y+33, 	
@@ -181,7 +181,7 @@ function createZD_fup(X,Y,wid,hid,stage,GJ,bmpLX,bmpRX){//副炮
 				this.removeFromParent();
 				 //	添加动态子弹爆炸
 				var zdbj = new Hilo.Sprite({
-					frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-7", document.getElementById("bz1"), 56, 56, true),
+					frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-7", PQUEUE.getContent('img_bullet'), 56, 56, true),
 					x: this.x,
 					y: this.y,
 					scaleX:0.5,
@@ -240,7 +240,7 @@ function createZD_fup(X,Y,wid,hid,stage,GJ,bmpLX,bmpRX){//副炮
 function createZD_zhongp(X,Y,wid,hid,stage,GJ){//激光暴走
 	//创建子弹
 	var bmp = new Hilo.Sprite({
-		frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-6", document.getElementById("zd1"), 137, 309, true),
+		frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-6",queueFJ.getContent('zd1'), 137, 309, true),
 		interval:1,
 		timeBased: false,
 		loop: true,
@@ -279,7 +279,7 @@ function createZD_jiguang(Z,id,W,H,stage,GJ,wid,X,Y){//激光武器
 	GJ= GJ||2;
 	var bmp = new Hilo.Sprite({
 	//		frames: atlas.getSprite('fish'),
-			frames: Hilo.TextureAtlas.createSpriteFrames("swim", Z, document.getElementById(id), W, H, true),
+			frames: Hilo.TextureAtlas.createSpriteFrames("swim", Z, queueFJ.getContent(id), W, H, true),
 			interval:1,
 			timeBased: false,
 			loop: true,
@@ -298,7 +298,7 @@ function createZD_jiguang(Z,id,W,H,stage,GJ,wid,X,Y){//激光武器
 		//		飞机火焰动态图
 	var fish2 = new Hilo.Sprite({
 //		frames: atlas.getSprite('fish'),
-		frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-1", document.getElementById("hy"), 32, 80, true),
+		frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-1", queueFJ.getContent('huoyan'), 32, 80, true),
 		x: 24,
 		y: 138,
 		interval: 2,

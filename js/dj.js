@@ -29,7 +29,7 @@ function createDJ(Instage,rec,HP,FS,T,TX,TY,zd,bz){
 	zd = zd || false;
 	var sand = Math.random()*winWidth;
   	var bmp = new Hilo.Bitmap({
-            image: './image/img_plane_enemy.png',
+            image: PQUEUE.getContent("img_plane_enemy"),
             rect: rec,
             x:sand-50,
             y: -100,
@@ -93,7 +93,7 @@ function createBOSS(Instage,rec,HP,FS,Fun){
 	var zd  = false;
 	var h;
   	var bmp = new Hilo.Bitmap({
-            image:'./image/img_plane_boss.png',
+            image:PQUEUE.getContent("img_plane_boss"),
             rect: rec,
             x:350,
             y: -200,
@@ -187,7 +187,7 @@ function createDJZD(stage,rec,Fx,Fy,TX,TY,T,sh){//敌机子弹
 	T = T || 3000;
 	TY = TY||1000;
   	var bmp = new Hilo.Bitmap({
-            image: './image/zd.png',
+            image: PQUEUE.getContent('zd'),
             rect: rec,
             x:Fx,
             y:Fy,
@@ -242,7 +242,7 @@ function removerDJ(obj,X,Y){	//	添加动态敌机爆炸
 		yy = obj.y-obj.height/2;
 	}
 	var djbj = new Hilo.Sprite({
-		frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-7", document.getElementById("bz1"), 56, 56, true),
+		frames: Hilo.TextureAtlas.createSpriteFrames("swim", "0-7", PQUEUE.getContent('img_bullet'), 56, 56, true),
 		x: xx,
 		y: yy,
 		scaleX:X,

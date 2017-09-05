@@ -1,3 +1,5 @@
+	var PQUEUE ;//全局预加载
+	var queueFJ;//飞机预加载
 	var DF = 0;//当前得分
 	var containerEle =  document.getElementById("game-container");//画布
 	var title = document.getElementById("title")//计分板
